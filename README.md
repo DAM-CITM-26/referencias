@@ -57,6 +57,6 @@ Si un botón o un bloque de una pantalla es de un sprint posterior, lleva una et
 | `js/componentes.js` | Una función por pieza, que devuelve HTML | Un componente con props en `src/components/` |
 | `js/app.js` | El estado, las rutas y `pintar()` | `useState`, React Router y Context |
 
-El código de React **no tiene que ser igual** que el de la referencia: tiene que **funcionar y verse** como ella. Y todo lo que hay en vuestro repositorio, también lo que salga de aquí, lo tenéis que saber explicar.
+El código de React **no tiene que ser igual** que el de la referencia: tiene que **funcionar** como ella y **verse, como mínimo, como ella**. Si queréis, podéis acercar el aspecto a vuestro Figma. Y todo lo que hay en vuestro repositorio, también lo que salga de aquí, lo tenéis que saber explicar.
 
 El ejemplo completo, de la referencia de la Ludoteca a React, rama a rama y commit a commit: [DAM-CITM-26/ludoteca-react](https://github.com/DAM-CITM-26/ludoteca-react).
