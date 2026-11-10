@@ -1,0 +1,29 @@
+{
+  "name": "CraftMeet",
+  "short_name": "CraftMeet",
+  "description": "Descubre talleres de manualidades cerca de ti y reserva tu plaza",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FCE4DE",
+  "theme_color": "#BC573D",
+  "icons": [
+    {
+      "src": "icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

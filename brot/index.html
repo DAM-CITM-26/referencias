@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Brot · referencia</title>
+  <meta name="description" content="Recetas veganas y el seguimiento de tus nutrientes, sin complicaciones">
+  <meta name="theme-color" content="#2D5A27">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icono-192.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!--
+    REFERENCIA EN HTML, CSS Y JS · lo mínimo que tiene que hacer Brot.
+    Es una guía, no hay que copiarla al pie de la letra: vuestra app en React tiene que
+    hacer lo mismo, organizada a vuestra manera, sprint a sprint.
+    Cada pantalla lleva una franja de color con su sprint, y la página «Qué toca en cada
+    sprint» (la etiqueta de arriba a la derecha) resume el alcance de cada uno.
+
+    · index.html → el "esqueleto" fijo: cabecera, contenido y barra de pestañas.
+    · js/datos.js → los datos, escritos en el código (en React: la API, Sprint 2).
+    · js/logica.js → funciones puras: reciben datos y devuelven datos (en React: src/utils, con tests en el Sprint 3).
+    · js/componentes.js → cada "componente" es una función que recibe un objeto (las props) y devuelve HTML.
+    · js/app.js → el estado, las rutas y pintar() (en React: useState, React Router y, en el Sprint 3, un Context).
+  -->
+  <header class="cabecera">
+    <h1 id="titulo">Brot</h1>
+    <a id="sprint" class="tag" href="#/alcance" title="Qué toca en cada sprint"></a>
+  </header>
+
+  <main id="app"></main>
+
+  <nav class="pestanas" aria-label="Secciones">
+    <a href="#/" data-pestana="recetas">
+      <span aria-hidden="true">🥗</span>Recetas
+    </a>
+    <a href="#/semana" data-pestana="semana">
+      <span aria-hidden="true">📅</span>Mi semana
+    </a>
+    <a href="#/perfil" data-pestana="perfil">
+      <span aria-hidden="true">👤</span>Perfil
+    </a>
+  </nav>
+
+  <!-- Aquí aparecen los paneles, las ventanas y los avisos -->
+  <div id="capas"></div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/logica.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

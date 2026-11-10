@@ -1,0 +1,366 @@
+/* ─────────────────────────────────────────────────────────────
+   ESTILOS DE LA REFERENCIA
+   1. Tokens: los valores de vuestro Style Guide, como variables.
+   2. Esqueleto: cabecera, contenido y barra de pestañas.
+   3. Patrones: una clase por pieza (tarjeta, carrusel, chip…).
+   En React se copia este fichero tal cual a src/index.css
+   y se usan las mismas clases con className="…".
+   ───────────────────────────────────────────────────────────── */
+
+/* 1. TOKENS (los de vuestro Style Guide) */
+:root {
+  --color-primario: #193819;
+  --color-sobre-primario: #FFFFFF;
+  --color-acento: #FC8A2D;
+  --color-fondo: #F8F8F8;
+  --color-superficie: #FFFFFF;
+  --color-texto: #1C1C1C;
+  --color-texto-suave: #5E5F60;
+  --color-borde: #E4E4E2;
+  --color-peligro: #B23A3A;
+
+  --fuente: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fuente-titulos: var(--fuente);
+  --radio: 12px;
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-5: 24px;
+  --alto-pestanas: 64px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.45;
+}
+
+h1, h2, h3 { margin: 0; line-height: 1.2; }
+h2 { font-size: 1.1rem; margin-bottom: var(--espacio-3); }
+h3 { font-size: 1rem; }
+p { margin: 0; }
+img { max-width: 100%; display: block; }
+
+/* 2. ESQUELETO */
+
+/* Cabecera: se queda arriba al hacer scroll (sticky) */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4);
+  /* en pantallas anchas, alineada con el contenido (máximo 720 px, centrado) */
+  padding-inline: max(var(--espacio-4), calc((100% - 720px) / 2 + var(--espacio-4)));
+  background: var(--color-fondo);
+  border-bottom: 1px solid var(--color-borde);
+}
+.cabecera h1 { font-size: 1.4rem; }
+
+/* El contenido: el scroll vertical lo hace el navegador solo.
+   El padding de abajo evita que la barra fija tape lo último. */
+main {
+  padding: var(--espacio-4);
+  padding-bottom: calc(var(--alto-pestanas) + var(--espacio-5));
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Barra de pestañas: siempre abajo (fixed) */
+.pestanas {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  height: var(--alto-pestanas);
+  display: flex;
+  background: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+}
+.pestanas a,
+.pestanas button {
+  flex: 1;
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+  text-decoration: none;
+}
+.pestanas a span,
+.pestanas button span { font-size: 1.3rem; }
+.pestanas a.activa,
+.pestanas button.activa { color: var(--color-primario); font-weight: 600; }
+
+/* 3. PATRONES */
+
+/* Colocar sin pensar: en columna o en fila, con hueco entre elementos */
+.stack { display: flex; flex-direction: column; gap: var(--espacio-4); }
+.row { display: flex; align-items: center; gap: var(--espacio-2); flex-wrap: wrap; }
+.seccion { margin-bottom: var(--espacio-5); }
+
+/* Tarjeta */
+.card {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.card-cuerpo { padding: var(--espacio-3); display: flex; flex-direction: column; gap: var(--espacio-1); }
+.card-meta { font-size: 0.85rem; color: var(--color-texto-suave); }
+.card-cuerpo .tag { align-self: flex-start; }
+
+/* Portada de color (cuando no hay imagen) */
+.portada {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #FFFFFF;
+}
+
+/* Rejilla de tarjetas: tantas columnas como quepan */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--espacio-3);
+}
+
+/* Carrusel: una fila que se desliza de lado */
+.carrusel {
+  display: flex;
+  gap: var(--espacio-3);
+  overflow-x: auto;                /* si no caben, scroll horizontal */
+  scroll-snap-type: x mandatory;   /* al soltar, encaja en una tarjeta */
+  padding-bottom: var(--espacio-2);
+}
+.carrusel > * {
+  flex: 0 0 min(70%, 260px);       /* se ve asomar la siguiente; en pantallas anchas, como mucho 260 px */
+  scroll-snap-align: start;
+}
+
+/* Lista */
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--espacio-2); }
+.list li {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-3);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+.list li .crece { flex: 1; min-width: 0; }
+
+/* Avatar: un círculo con una letra */
+.avatar {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* Etiqueta */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--color-borde);
+  color: var(--color-texto);
+}
+.tag-rapida { background: #DCEFE6; color: #1E5A45; }
+.tag-media { background: #FBEBCF; color: #7A4E0C; }
+.tag-larga { background: #F3DADA; color: #7E2626; }
+.tag-sprint { background: var(--color-texto); color: var(--color-fondo); }
+
+/* Botones */
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+}
+.btn-secundario { background: transparent; color: var(--color-primario); border: 1px solid var(--color-primario); }
+.btn-peligro { background: var(--color-peligro); }
+.btn-icono {
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: var(--espacio-1);
+}
+
+/* Botón flotante */
+.fab {
+  position: fixed;
+  right: var(--espacio-4);
+  bottom: calc(var(--alto-pestanas) + var(--espacio-4));
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: none;
+  font-size: 1.6rem;
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Chips (filtros de una opción) */
+.chips { display: flex; gap: var(--espacio-2); overflow-x: auto; padding-bottom: var(--espacio-1); }
+.chip {
+  flex: none;
+  border: 1px solid var(--color-borde);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+.chip.activo { background: var(--color-primario); border-color: var(--color-primario); color: var(--color-sobre-primario); }
+
+/* Campos de formulario */
+.field { display: flex; flex-direction: column; gap: var(--espacio-1); font-size: 0.9rem; }
+.field input,
+.field select,
+.field textarea,
+.buscador {
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  width: 100%;
+}
+
+/* Estrellas (las que se pulsan son botones) */
+.estrellas { color: var(--color-acento); letter-spacing: 2px; }
+.estrellas button { border: none; background: none; font-size: 1.6rem; color: var(--color-acento); cursor: pointer; padding: 0 2px; }
+
+/* Selector de cantidad − / + */
+.cantidad { display: flex; align-items: center; gap: var(--espacio-3); }
+.cantidad button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--color-borde); background: var(--color-superficie); font-size: 1.2rem; cursor: pointer; }
+.cantidad output { min-width: 2ch; text-align: center; font-weight: 700; }
+
+/* Estado vacío */
+.vacio { text-align: center; color: var(--color-texto-suave); padding: var(--espacio-5) var(--espacio-4); }
+.vacio .icono { font-size: 2.5rem; }
+
+/* Fondo oscuro detrás de un panel o una ventana */
+.fondo { position: fixed; inset: 0; z-index: 20; background: rgba(0, 0, 0, 0.4); }
+
+/* Panel inferior */
+.panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 21;
+  max-height: 80vh;
+  overflow-y: auto;                /* si el contenido es largo, se desliza dentro */
+  background: var(--color-superficie);
+  border-radius: 16px 16px 0 0;
+  padding: var(--espacio-5) var(--espacio-4);
+}
+
+/* Ventana centrada */
+.modal {
+  position: fixed;
+  z-index: 21;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 360px);
+  background: var(--color-superficie);
+  border-radius: var(--radio);
+  padding: var(--espacio-5);
+}
+
+/* Aviso breve abajo */
+.aviso {
+  position: fixed;
+  z-index: 30;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--alto-pestanas) + var(--espacio-4));
+  background: var(--color-texto);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: var(--radio);
+  font-size: 0.9rem;
+}
+
+/* Para lectores de pantalla: oculto a la vista */
+.oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Pequeños ajustes */
+.enlace-fila { color: inherit; text-decoration: none; }
+.enlace-btn { text-decoration: none; display: inline-block; }
+.centrado { text-align: center; }
+.cantidad span { min-width: 7ch; }
+
+/* Títulos con la tipografía de títulos del Style Guide */
+h1, h2, h3 { font-family: var(--fuente-titulos); }
+
+/* Tarjeta destacada (más grande, con el texto encima del color) */
+.destacada { display: block; color: #FFFFFF; text-decoration: none; border-radius: var(--radio); padding: var(--espacio-5) var(--espacio-4); }
+.destacada p { opacity: 0.9; }
+
+/* Un bloque con fondo de tarjeta (formularios, resúmenes) */
+.formulario { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio); padding: var(--espacio-4); }
+.field textarea { min-height: 90px; resize: vertical; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-secundario { background: transparent; }
+
+/* Tabla sencilla (comparativas, rankings) */
+.tabla { width: 100%; border-collapse: collapse; background: var(--color-superficie); border-radius: var(--radio); overflow: hidden; }
+.tabla th, .tabla td { text-align: left; padding: var(--espacio-2) var(--espacio-3); border-bottom: 1px solid var(--color-borde); }
+.tabla th { font-size: 0.8rem; color: var(--color-texto-suave); }
+
+/* ── ALCANCE POR SPRINT ── (solo de la referencia: en vuestra app no hace falta) */
+.tag-s1 { background: #DCEFE6; color: #1E5A45; }
+.tag-s2 { background: #E6E0FA; color: #4A3A9A; }
+.tag-s3 { background: #FBE3CC; color: #8A4A10; }
+.tag-s0 { background: var(--color-texto); color: var(--color-fondo); }
+.cabecera a.tag { text-decoration: none; }
+.franja-sprint { margin: calc(-1 * var(--espacio-4)) calc(-1 * var(--espacio-4)) var(--espacio-4); padding: var(--espacio-2) var(--espacio-4); font-size: 0.85rem; }
+.franja-sprint a { color: inherit; font-weight: 600; }
+.franja-s1 { background: #DCEFE6; color: #1E5A45; }
+.franja-s2 { background: #E6E0FA; color: #4A3A9A; }
+.franja-s3 { background: #FBE3CC; color: #8A4A10; }
+.alcance-sprint { border-left: 6px solid; padding: var(--espacio-3) var(--espacio-4); background: var(--color-superficie); border-radius: var(--radio); }
+.alcance-sprint ul { margin: var(--espacio-2) 0 0; padding-left: 20px; }
+.alcance-s1 { border-color: #2E8F66; }
+.alcance-s2 { border-color: #6D5BD0; }
+.alcance-s3 { border-color: #C4791F; }

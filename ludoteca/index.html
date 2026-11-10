@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ludoteca · referencia</title>
+  <meta name="description" content="Tu colección de juegos de mesa: descubre, guarda y apunta tus partidas">
+  <meta name="theme-color" content="#2E6B57">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icono-192.png">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!--
+    REFERENCIA EN HTML, CSS Y JS · lo mínimo que tiene que hacer la app.
+    Vuestro trabajo: hacerla en React a partir de ella, sprint a sprint.
+
+    · index.html → el "esqueleto" fijo: cabecera, contenido y barra de pestañas.
+    · js/datos.js → los datos, escritos en el código (en React: la API, Sprint 2).
+    · js/logica.js → funciones puras: reciben datos y devuelven datos (en React: src/utils, con tests en el Sprint 3).
+    · js/componentes.js → cada "componente" es una función que recibe datos y devuelve HTML (en React: un componente con props).
+    · js/app.js → el estado, las rutas y pintar() (en React: useState, React Router, y React pinta solo).
+  -->
+  <header class="cabecera">
+    <h1 id="titulo">Ludoteca</h1>
+    <span id="sprint" class="tag tag-sprint"></span>
+  </header>
+
+  <main id="app"></main>
+
+  <nav class="pestanas" aria-label="Secciones">
+    <a href="#/" data-pestana="inicio">
+      <span aria-hidden="true">🏠</span>Inicio
+    </a>
+    <a href="#/catalogo" data-pestana="catalogo">
+      <span aria-hidden="true">🎲</span>Catálogo
+    </a>
+    <a href="#/ludoteca" data-pestana="ludoteca">
+      <span aria-hidden="true">📚</span>Mi ludoteca
+    </a>
+  </nav>
+
+  <!-- Aquí aparecen el panel inferior, la ventana de confirmación y los avisos -->
+  <div id="capas"></div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/logica.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

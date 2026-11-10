@@ -1,0 +1,29 @@
+{
+  "name": "Espies de Veritat",
+  "short_name": "Espies de Ve",
+  "description": "Tu nevera bajo control: qué tienes, qué caduca y qué puedes cocinar",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F0E9E5",
+  "theme_color": "#32965D",
+  "icons": [
+    {
+      "src": "icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Groovd",
+  "short_name": "Groovd",
+  "description": "Descubre música y podcasts, guarda lo que te gusta y escribe tus reseñas",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#120D12",
+  "theme_color": "#FF341B",
+  "icons": [
+    {
+      "src": "icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
