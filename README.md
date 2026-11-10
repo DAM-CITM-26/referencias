@@ -19,6 +19,11 @@ Cada equipo tiene aquí su **referencia**: su **MVP** (*Minimum Viable Product*,
 | **OhM** | Xoxe | [Abrir](https://dam-citm-26.github.io/referencias/ohm/) | [`ohm/`](ohm/) |
 | **Ludoteca** | Ejemplo de clase | [Abrir](https://dam-citm-26.github.io/referencias/ludoteca/) | [`ludoteca/`](ludoteca/) |
 
+## Lo que hay además de la app
+
+- **El plan de vuestro proyecto:** una propuesta, sprint a sprint, de pantallas, datos, lógica y comunicación, en la carpeta de vuestra app: `…/referencias/<vuestra-app>/plan.html`. Por ejemplo, [el de Brot](https://dam-citm-26.github.io/referencias/brot/plan.html).
+- **Las plantillas** de `AGENTS.md` y `MEMORIA.md`: en [`plantillas/`](plantillas/).
+
 ## Cómo verla
 
 ### En el ordenador
