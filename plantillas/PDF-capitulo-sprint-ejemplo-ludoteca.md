@@ -16,7 +16,7 @@
 
 ### 2. Capturas de la app en el móvil
 
-*(Aquí, la captura de Inicio en el móvil al lado de la de la referencia.)*
+*(Aquí, la captura de Inicio en el móvil.)*
 
 ### 3. Cambios respecto al diseño
 

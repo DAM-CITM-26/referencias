@@ -20,7 +20,7 @@ Las piezas de vuestra referencia de este sprint, cada una marcada como **hecha**
 
 ### 2. Capturas de la app en el móvil
 
-Cada pantalla del sprint, al lado de la misma pantalla de la referencia.
+Cada pantalla del sprint.
 
 ### 3. Cambios respecto al diseño
 
