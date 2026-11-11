@@ -22,7 +22,7 @@ Cada equipo tiene aquí su **referencia**: su **MVP** (*Minimum Viable Product*,
 ## Lo que hay además de la app
 
 - **El plan de vuestro proyecto:** una propuesta, sprint a sprint, de pantallas, datos, lógica y comunicación, en la carpeta de vuestra app: `…/referencias/<vuestra-app>/plan.html`. Por ejemplo, [el de Brot](https://dam-citm-26.github.io/referencias/brot/plan.html).
-- **Las plantillas** de `AGENTS.md` y `MEMORIA.md`: en [`plantillas/`](plantillas/).
+- **Las plantillas:** el capítulo de cada sprint del PDF del MVP y, si usáis IA, el esqueleto de `AGENTS.md`, en [`plantillas/`](plantillas/).
 
 ## Cómo verla
 

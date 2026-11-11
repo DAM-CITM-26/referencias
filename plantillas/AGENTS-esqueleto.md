@@ -1,6 +1,6 @@
 # AGENTS.md · [Nombre de la app] · DAM 2026-27
 
-> **Esqueleto.** Estos son los apartados que tiene que tener vuestro `AGENTS.md`. Lo escribís vosotros, en la raíz del repositorio, con vuestras palabras; borrad estas notas en gris (las líneas que empiezan por `>`) cuando lo tengáis.
+> **Esqueleto. Solo si vuestro equipo usa IA** (no es obligatoria). Estos son los apartados que tiene que tener vuestro `AGENTS.md`. Lo escribís vosotros, en la raíz del repositorio, con vuestras palabras; borrad estas notas en gris (las líneas que empiezan por `>`) cuando lo tengáis.
 >
 > - **Para quién es:** para la IA, no para las personas. OpenCode lo lee solo si lo abrís en la carpeta del repositorio (no uséis `/init`: lo reescribe). En un chat (ChatGPT u otro), pegadlo al empezar cada conversación.
 > - **Para qué:** que la IA solo use lo que se ha visto en clase y que trabaje como copiloto.
@@ -29,7 +29,7 @@
 
 ## Cómo tiene que responder
 
-> Cómo queréis que os ayude. Lo primero: que lea `MEMORIA.md` antes de proponer nada, para respetar lo que ya habéis decidido y no repetir errores. Después, por ejemplo: el plan en 3-5 líneas antes del código y con qué concepto de clase; una pieza cada vez, nunca la pantalla entera; revisar vuestro código sin reescribirlo; proponer el mensaje de commit con su formato (`Qué`, `Por qué`, `Cómo`, `Referencia:`, `Concepto:`, `IA:`); los nombres de las props propias, distintos de los nativos (`onCambio`, no `onChange`).
+> Cómo queréis que os ayude. Por ejemplo: el plan en 3-5 líneas antes del código y con qué concepto de clase; una pieza cada vez, nunca la pantalla entera; revisar vuestro código sin reescribirlo; proponer el mensaje de commit con su formato (`Qué`, `Por qué`, `Cómo`, `Referencia:`, `Concepto:`, `IA:`); los nombres de las props propias, distintos de los nativos (`onCambio`, no `onChange`).
 
 -
 
@@ -37,7 +37,6 @@
 
 - **App:** [nombre] — [qué hace, en una frase]
 - **Referencia:** https://dam-citm-26.github.io/referencias/[vuestra-app]/ (su código, en github.com/DAM-CITM-26/referencias)
-- **Memoria del equipo:** `MEMORIA.md` (léela antes de proponer cambios)
 - **Pantallas del sprint en curso:**
 - **Modelo de datos:** `docs/datos.md`
 - **Mapa de la referencia:** `docs/mapa-referencia.md`
