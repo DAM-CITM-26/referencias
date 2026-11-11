@@ -20,7 +20,7 @@ Las piezas de vuestra referencia de este sprint, cada una marcada como **hecha**
 
 ### 2. Capturas de la app en el móvil
 
-Cada pantalla del sprint.
+Cada pantalla del sprint. Si optáis al extra del Figma (+0,5), cada captura al lado de su pantalla de Figma.
 
 ### 3. Cambios respecto al diseño
 
