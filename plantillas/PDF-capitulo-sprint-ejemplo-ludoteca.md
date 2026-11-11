@@ -10,9 +10,9 @@
 
 | Pieza de la referencia | Estado | Tarjeta de Trello y PR |
 |---|---|---|
-| Inicio: novedades en carrusel | Hecha | S1-3 · PR #7 |
-| Inicio: todos los juegos, en rejilla | Hecha | S1-3 · PR #7 |
-| Inicio: chips de duración | Hecha | S1-C · PR #9 |
+| Inicio: novedades en carrusel | Hecha | S1 · Lista · PR #7 |
+| Inicio: todos los juegos, en rejilla | Hecha | S1 · Lista · PR #7 |
+| Inicio: chips de duración | Hecha | S1 · Estado · PR #9 |
 
 ### 2. Capturas de la app en el móvil
 
@@ -46,7 +46,7 @@ Un juego: `id`, `nombre`, `autoria`, `jugadores`, `duracion`, `color`, `editoria
 > **Qué probamos / discutimos:** dejarla dentro del componente, como en clase, o sacarla a `src/utils/`.
 > **Decisión:** a `src/utils/juegos.js`, junto con `filtrarPorDuracion`. La usan la tarjeta, la etiqueta y los chips, y así en el Sprint 3 le podremos hacer tests.
 > **Impacto:** `FichaJuego` queda más corto y solo pinta. Commit `a1b2c3d`.
-> **Enlaces:** PR #8 · tarjeta S1-L
+> **Enlaces:** PR #8 · tarjeta «S1 · Lógica»
 
 > **2026-11-11 · Problema · Carla**
 > **Situación:** después de copiar el CSS de la referencia, el título de la cabecera salía con la tipografía del navegador, no con la nuestra.
@@ -73,10 +73,10 @@ Un juego: `id`, `nombre`, `autoria`, `jugadores`, `duracion`, `color`, `editoria
 
 | Fecha | Quién | Herramienta | Para qué (US / PR) | Qué le pedimos | Qué aceptamos | Qué corregimos y por qué |
 |---|---|---|---|---|---|---|
-| 10/11 | Biel | OpenCode + Qwen | S1-3 · PR #6 | Le pegué la función `Valoracion()` de la referencia y le pedí que me explicara qué props necesitaría, sin código | Que bastaba con la prop `valor` | Nada: escribí yo el componente |
-| 11/11 | Ana | ChatGPT (gratis) | S1-C · PR #9 | Pegué `AGENTS.md` y `Inicio.jsx`; pedí que revisara el filtro | La pista de que el estado tenía que estar en el padre | Proponía `useMemo` para la lista filtrada: está prohibido en `AGENTS.md` y no hace falta. La lista se calcula en cada render |
-| 12/11 | Biel | OpenCode + Qwen | S1-3 · PR #7 | Le pedí traducir la pantalla de Inicio entera | Nada | Devolvió todo de golpe y con `document.querySelector` para los chips, que no se hace en React. Lo descartamos y traducimos pieza a pieza |
-| 13/11 | Carla | OpenCode + Qwen | S1-2 · PR #3 | Por qué el título no tenía nuestra tipografía | El diagnóstico (faltaba el `<link>` de la fuente en `index.html`) | Proponía escribir la fuente a mano con `@font-face`; bastaba con copiar el `<link>` de la referencia |
+| 10/11 | Biel | OpenCode + Qwen | S1 · Piezas · PR #6 | Le pegué la función `Valoracion()` de la referencia y le pedí que me explicara qué props necesitaría, sin código | Que bastaba con la prop `valor` | Nada: escribí yo el componente |
+| 11/11 | Ana | ChatGPT (gratis) | S1 · Estado · PR #9 | Pegué `AGENTS.md` y `Inicio.jsx`; pedí que revisara el filtro | La pista de que el estado tenía que estar en el padre | Proponía `useMemo` para la lista filtrada: está prohibido en `AGENTS.md` y no hace falta. La lista se calcula en cada render |
+| 12/11 | Biel | OpenCode + Qwen | S1 · Lista · PR #7 | Le pedí traducir la pantalla de Inicio entera | Nada | Devolvió todo de golpe y con `document.querySelector` para los chips, que no se hace en React. Lo descartamos y traducimos pieza a pieza |
+| 13/11 | Carla | OpenCode + Qwen | S1 · Estilos y mapa · PR #3 | Por qué el título no tenía nuestra tipografía | El diagnóstico (faltaba el `<link>` de la fuente en `index.html`) | Proponía escribir la fuente a mano con `@font-face`; bastaba con copiar el `<link>` de la referencia |
 | 14/11 | Carla | — | Revisión de PR #6-#9 | (sin IA) | — | Revisé cada PR con la referencia abierta al lado en modo móvil; pedí un cambio de nombre en el PR #9 |
 
 *(Como muestra hay 4 entradas de bitácora y 5 filas de IA. En un sprint real, cada persona tendría al menos 1 entrada y, si usa IA, 2 filas. Fijaos en las filas del 11/11 y del 12/11: la IA se salió de lo visto en clase, y se cuenta cómo se detectó.)*

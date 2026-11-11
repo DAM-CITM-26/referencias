@@ -39,7 +39,7 @@
 - **Referencia:** https://dam-citm-26.github.io/referencias/[vuestra-app]/ (su código, en github.com/DAM-CITM-26/referencias)
 - **Pantallas del sprint en curso:**
 - **Modelo de datos:** `docs/datos.md`
-- **Mapa de la referencia:** `docs/mapa-referencia.md`
+- **Componentes de cada pantalla:** `docs/componentes.md`
 
 ## Lo que hemos aprendido
 

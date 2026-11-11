@@ -5,7 +5,7 @@
 //   → function FichaJuego({ juego }) { return <Link className="card">…</Link> }
 // `${…}` pasa a ser {…}, class pasa a ser className, y .join('') desaparece.
 // Los botones llevan data-accion: en React eso será un onClick con su función.
-// El nivel de Atomic Design de cada uno se apunta en docs/mapa-referencia.md.
+// El nivel de Atomic Design de cada uno se apunta en docs/componentes.md.
 
 // ── ÁTOMOS ──
 
