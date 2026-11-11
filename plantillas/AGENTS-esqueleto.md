@@ -4,7 +4,7 @@
 >
 > - **Para quién es:** para la IA, no para las personas. OpenCode lo lee solo si lo abrís en la carpeta del repositorio (no uséis `/init`: lo reescribe). En un chat (ChatGPT u otro), pegadlo al empezar cada conversación.
 > - **Para qué:** que la IA solo use lo que se ha visto en clase y que trabaje como copiloto.
-> - **Es un documento vivo:** al empezar cada sprint, añadid lo que se ha desbloqueado (la tabla «Qué tenéis que usar en cada sprint» de la guía del proyecto). Cada vez que la IA se equivoque, añadid una regla en «Lo que hemos aprendido». Cada cambio, en un commit `docs(agents): …`.
+> - **Es un documento vivo:** al empezar cada sprint, añadid lo nuevo de la tabla «Qué tenéis que usar en cada sprint» de la guía del proyecto. Cada vez que la IA se equivoque, añadid una regla en «Lo que hemos aprendido». Cada cambio, en un commit `docs(agents): …`.
 > - **Cómo comprobar que funciona:** preguntadle a la IA «¿qué no puedes usar en este proyecto?». Tiene que responder con vuestra lista.
 
 ## Quiénes somos
@@ -17,13 +17,13 @@
 
 ## Permitido (hasta el Sprint [N])
 
-> La lista de lo obligatorio y lo opcional de la tabla de herramientas, hasta el sprint en curso. Una línea por cosa.
+> Lo de la tabla «Qué tenéis que usar en cada sprint» de la guía del proyecto, hasta el sprint en curso. Una línea por cosa.
 
 -
 
 ## Prohibido
 
-> Lo que todavía no se ha desbloqueado (con el sprint en que llega) y lo que no se usa nunca. Incluid siempre `document.querySelector`, `innerHTML` y `addEventListener`.
+> Lo que todavía no se ha visto en clase (con el sprint en que llega). Incluid siempre `document.querySelector`, `innerHTML` y `addEventListener`.
 
 -
 
