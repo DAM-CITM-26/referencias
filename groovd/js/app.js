@@ -38,34 +38,23 @@ const RUTAS = [
   { id: 'contenido', titulo: (id) => (CONTENIDOS.find((c) => c.id === id) || {}).titulo, sprint: 2, pantalla: PantallaContenido, pestana: 'inicio' },
 ]
 
-// ── ALCANCE: qué pieza va en cada sprint (solo de la referencia, en #/alcance) ──
 // ¿Las tarjetas de la pantalla del Sprint 1 abren una ficha del Sprint 2? (solo para la franja)
 const FICHA_DESDE_S1 = true
-const ALCANCE = [
-  {"sprint": 1, "pieza": "Inicio", "detalle": "el carrusel «Popular this week» y la lista de la semana, con chips por tipo"},
-  {"sprint": 2, "pieza": "Navegación", "detalle": "la barra de pestañas con vuestras secciones, cada una con su dirección (React Router)"},
-  {"sprint": 2, "pieza": "Buscar", "detalle": "en iTunes, con pestañas de canciones, álbumes y podcasts, con «cargando» y error"},
-  {"sprint": 2, "pieza": "Ficha", "detalle": "la pantalla de cada canción, álbum o podcast, con su dirección (#/contenido/7)"},
-  {"sprint": 2, "pieza": "«No encontrado»", "detalle": "la página de una dirección o un contenido que no existe"},
-  {"sprint": 2, "pieza": "Publicada", "detalle": "en GitHub Pages e instalable en el móvil"},
-  {"sprint": 3, "pieza": "Biblioteca", "detalle": "los «me gusta» y la lista «quiero escuchar», que se recuerdan al cerrar la app"},
-  {"sprint": 3, "pieza": "Reseña", "detalle": "en un panel; no se puede guardar sin puntuación"},
-  {"sprint": 3, "pieza": "Pruebas unitarias", "detalle": "al menos 3, con Vitest, sobre vuestras funciones de cálculo"},
-  {"sprint": 3, "pieza": "Lighthouse", "detalle": "accesibilidad y rendimiento, corrigiendo lo que marque (en clase)"},
-  {"sprint": 3, "pieza": "En el móvil", "detalle": "la app instalada funciona igual que en el ordenador y recuerda lo guardado (en clase)"},
-]
-
 function rutaActual() {
   const [id, parametro] = location.hash.replace('#/', '').split('/') // '#/x/7' → ['x', '7']
   if (!id) return { ruta: RUTAS[0], parametro }
-  if (id === 'alcance') return { ruta: { id: 'alcance', titulo: 'Resumen alcance', sprint: 0, pantalla: PantallaAlcance }, parametro }
+  // El resumen del alcance vive ahora en plan.html, junto al plan del equipo
+  if (id === 'alcance') {
+    location.replace('plan.html#resumen')
+    return { ruta: RUTAS[0], parametro }
+  }
   return { ruta: RUTAS.find((r) => r.id === id), parametro }
 }
 
 // ── PINTAR: vuelve a dibujar todo a partir del estado ──
 function pintar() {
   const { ruta, parametro } = rutaActual()
-  let html = ruta ? ruta.pantalla({ estado, id: Number(parametro), alcance: ALCANCE }) : null
+  let html = ruta ? ruta.pantalla({ estado, id: Number(parametro) }) : null
   let titulo = ruta ? (typeof ruta.titulo === 'function' ? ruta.titulo(Number(parametro)) : ruta.titulo) : ''
   let sprint = ruta ? ruta.sprint : 2
   if (html === null) {
@@ -81,9 +70,9 @@ function pintar() {
 
   document.querySelector('#titulo').textContent = titulo
   const etiqueta = document.querySelector('#sprint')
-  etiqueta.textContent = sprint === 0 ? 'Alcance' : 'Sprint ' + sprint
+  etiqueta.textContent = 'Sprint ' + sprint
   etiqueta.className = 'tag tag-s' + sprint
-  document.querySelector('#app').innerHTML = (sprint === 0 ? '' : FranjaSprint({ sprint })) + html
+  document.querySelector('#app').innerHTML = FranjaSprint({ sprint }) + html
   document.querySelector('#capas').innerHTML = Capas({ estado }) + (estado.aviso ? Aviso({ texto: estado.aviso }) : '')
   const pestanaActiva = ruta ? ruta.pestana || ruta.id : ''
   document.querySelectorAll('.pestanas a').forEach((enlace) => {

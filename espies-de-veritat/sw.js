@@ -1,7 +1,7 @@
 // SERVICE WORKER · guarda los ficheros de la app la primera vez,
 // para que se pueda abrir sin conexión. En React lo hará vite-plugin-pwa (Sprint 2).
 // Si cambia algún fichero, se sube la versión para que el móvil descargue la nueva.
-const VERSION = 'espies-de-veritat-v4'
+const VERSION = 'espies-de-veritat-v5'
 const FICHEROS = [
   './', 'index.html', 'css/estilos.css',
   'js/datos.js', 'js/logica.js', 'js/componentes.js', 'js/app.js',

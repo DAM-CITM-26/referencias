@@ -35,34 +35,23 @@ const RUTAS = [
   { id: 'producto', titulo: (id) => (PRODUCTOS.find((p) => p.id === id) || {}).nombre, sprint: 2, pantalla: PantallaProducto, pestana: 'productos' },
 ]
 
-// ── ALCANCE: qué pieza va en cada sprint (solo de la referencia, en #/alcance) ──
 // ¿Las tarjetas de la pantalla del Sprint 1 abren una ficha del Sprint 2? (solo para la franja)
 const FICHA_DESDE_S1 = true
-const ALCANCE = [
-  {"sprint": 1, "pieza": "Productos", "detalle": "en tarjetas, con la ordenación y los filtros de supermercado y de precio máximo"},
-  {"sprint": 2, "pieza": "Navegación", "detalle": "la barra de pestañas con vuestras secciones, cada una con su dirección (React Router)"},
-  {"sprint": 2, "pieza": "Buscar", "detalle": "productos en Open Food Facts, con «cargando» y error"},
-  {"sprint": 2, "pieza": "Ficha del producto", "detalle": "su pantalla con su dirección (#/producto/7), con la comparación entre supermercados"},
-  {"sprint": 2, "pieza": "«No encontrado»", "detalle": "la página de una dirección o un producto que no existe"},
-  {"sprint": 2, "pieza": "Publicada", "detalle": "en GitHub Pages e instalable en el móvil"},
-  {"sprint": 3, "pieza": "Cesta", "detalle": "que se recuerda al cerrar la app, con el selector de cantidad"},
-  {"sprint": 3, "pieza": "El más barato y el presupuesto", "detalle": "qué supermercado sale más barato para toda la cesta, y el aviso si se pasa del presupuesto"},
-  {"sprint": 3, "pieza": "Pruebas unitarias", "detalle": "al menos 3, con Vitest, sobre vuestras funciones de cálculo"},
-  {"sprint": 3, "pieza": "Lighthouse", "detalle": "accesibilidad y rendimiento, corrigiendo lo que marque (en clase)"},
-  {"sprint": 3, "pieza": "En el móvil", "detalle": "la app instalada funciona igual que en el ordenador y recuerda lo guardado (en clase)"},
-]
-
 function rutaActual() {
   const [id, parametro] = location.hash.replace('#/', '').split('/') // '#/x/7' → ['x', '7']
   if (!id) return { ruta: RUTAS[0], parametro }
-  if (id === 'alcance') return { ruta: { id: 'alcance', titulo: 'Resumen alcance', sprint: 0, pantalla: PantallaAlcance }, parametro }
+  // El resumen del alcance vive ahora en plan.html, junto al plan del equipo
+  if (id === 'alcance') {
+    location.replace('plan.html#resumen')
+    return { ruta: RUTAS[0], parametro }
+  }
   return { ruta: RUTAS.find((r) => r.id === id), parametro }
 }
 
 // ── PINTAR: vuelve a dibujar todo a partir del estado ──
 function pintar() {
   const { ruta, parametro } = rutaActual()
-  let html = ruta ? ruta.pantalla({ estado, id: Number(parametro), alcance: ALCANCE }) : null
+  let html = ruta ? ruta.pantalla({ estado, id: Number(parametro) }) : null
   let titulo = ruta ? (typeof ruta.titulo === 'function' ? ruta.titulo(Number(parametro)) : ruta.titulo) : ''
   let sprint = ruta ? ruta.sprint : 2
   if (html === null) {
@@ -78,9 +67,9 @@ function pintar() {
 
   document.querySelector('#titulo').textContent = titulo
   const etiqueta = document.querySelector('#sprint')
-  etiqueta.textContent = sprint === 0 ? 'Alcance' : 'Sprint ' + sprint
+  etiqueta.textContent = 'Sprint ' + sprint
   etiqueta.className = 'tag tag-s' + sprint
-  document.querySelector('#app').innerHTML = (sprint === 0 ? '' : FranjaSprint({ sprint })) + html
+  document.querySelector('#app').innerHTML = FranjaSprint({ sprint }) + html
   document.querySelector('#capas').innerHTML = Capas({ estado }) + (estado.aviso ? Aviso({ texto: estado.aviso }) : '')
   const pestanaActiva = ruta ? ruta.pestana || ruta.id : ''
   document.querySelectorAll('.pestanas a').forEach((enlace) => {

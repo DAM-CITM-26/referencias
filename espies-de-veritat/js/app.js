@@ -32,35 +32,23 @@ const RUTAS = [
   { id: 'receta', titulo: (id) => (RECETAS.find((r) => r.id === id) || {}).nombre, sprint: 2, pantalla: PantallaReceta, pestana: 'recetas' },
 ]
 
-// ── ALCANCE: qué pieza va en cada sprint (solo de la referencia, en #/alcance) ──
 // ¿Las tarjetas de la pantalla del Sprint 1 abren una ficha del Sprint 2? (solo para la franja)
 const FICHA_DESDE_S1 = false
-const ALCANCE = [
-  {"sprint": 1, "pieza": "Mi nevera", "detalle": "los productos ordenados por caducidad, con su etiqueta, y el formulario para añadir uno"},
-  {"sprint": 2, "pieza": "Navegación", "detalle": "la barra de pestañas con vuestras secciones, cada una con su dirección (React Router)"},
-  {"sprint": 2, "pieza": "Recetas", "detalle": "buscar recetas por un ingrediente en TheMealDB, con «cargando» y error"},
-  {"sprint": 2, "pieza": "Ficha de la receta", "detalle": "su pantalla con su dirección (#/receta/7), con los ingredientes que tienes y los que te faltan"},
-  {"sprint": 2, "pieza": "«No encontrado»", "detalle": "la página de una dirección o una receta que no existe"},
-  {"sprint": 2, "pieza": "Publicada", "detalle": "en GitHub Pages e instalable en el móvil"},
-  {"sprint": 3, "pieza": "La nevera se recuerda", "detalle": "los productos se guardan en el móvil y se pueden quitar"},
-  {"sprint": 3, "pieza": "Lista de la compra", "detalle": "lo que falta para una receta, calculado a partir de la nevera"},
-  {"sprint": 3, "pieza": "Aviso de caducidad", "detalle": "arriba de la nevera, cuántos productos caducan pronto"},
-  {"sprint": 3, "pieza": "Pruebas unitarias", "detalle": "al menos 3, con Vitest, sobre vuestras funciones de cálculo"},
-  {"sprint": 3, "pieza": "Lighthouse", "detalle": "accesibilidad y rendimiento, corrigiendo lo que marque (en clase)"},
-  {"sprint": 3, "pieza": "En el móvil", "detalle": "la app instalada funciona igual que en el ordenador y recuerda lo guardado (en clase)"},
-]
-
 function rutaActual() {
   const [id, parametro] = location.hash.replace('#/', '').split('/') // '#/x/7' → ['x', '7']
   if (!id) return { ruta: RUTAS[0], parametro }
-  if (id === 'alcance') return { ruta: { id: 'alcance', titulo: 'Resumen alcance', sprint: 0, pantalla: PantallaAlcance }, parametro }
+  // El resumen del alcance vive ahora en plan.html, junto al plan del equipo
+  if (id === 'alcance') {
+    location.replace('plan.html#resumen')
+    return { ruta: RUTAS[0], parametro }
+  }
   return { ruta: RUTAS.find((r) => r.id === id), parametro }
 }
 
 // ── PINTAR: vuelve a dibujar todo a partir del estado ──
 function pintar() {
   const { ruta, parametro } = rutaActual()
-  let html = ruta ? ruta.pantalla({ estado, id: Number(parametro), alcance: ALCANCE }) : null
+  let html = ruta ? ruta.pantalla({ estado, id: Number(parametro) }) : null
   let titulo = ruta ? (typeof ruta.titulo === 'function' ? ruta.titulo(Number(parametro)) : ruta.titulo) : ''
   let sprint = ruta ? ruta.sprint : 2
   if (html === null) {
@@ -76,9 +64,9 @@ function pintar() {
 
   document.querySelector('#titulo').textContent = titulo
   const etiqueta = document.querySelector('#sprint')
-  etiqueta.textContent = sprint === 0 ? 'Alcance' : 'Sprint ' + sprint
+  etiqueta.textContent = 'Sprint ' + sprint
   etiqueta.className = 'tag tag-s' + sprint
-  document.querySelector('#app').innerHTML = (sprint === 0 ? '' : FranjaSprint({ sprint })) + html
+  document.querySelector('#app').innerHTML = FranjaSprint({ sprint }) + html
   document.querySelector('#capas').innerHTML = Capas({ estado }) + (estado.aviso ? Aviso({ texto: estado.aviso }) : '')
   const pestanaActiva = ruta ? ruta.pestana || ruta.id : ''
   document.querySelectorAll('.pestanas a').forEach((enlace) => {
