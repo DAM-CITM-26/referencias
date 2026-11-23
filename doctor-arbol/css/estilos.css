@@ -353,7 +353,10 @@ h1, h2, h3 { font-family: var(--fuente-titulos); }
 .tag-s2 { background: #E6E0FA; color: #4A3A9A; }
 .tag-s3 { background: #FBE3CC; color: #8A4A10; }
 .tag-s0 { background: var(--color-texto); color: var(--color-fondo); }
-.cabecera a.tag { text-decoration: none; }
+.cabecera { flex-wrap: wrap; }
+.cabecera-extra { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: flex-end; }
+.boton-ref { font-size: 0.75rem; font-weight: 600; padding: 2px 10px; border: 1px solid var(--color-borde); border-radius: 999px; color: var(--color-texto); background: var(--color-superficie); text-decoration: none; }
+.boton-ref:focus-visible { outline: 2px solid var(--color-texto); outline-offset: 2px; }
 .franja-sprint { margin: calc(-1 * var(--espacio-4)) calc(-1 * var(--espacio-4)) var(--espacio-4); padding: var(--espacio-2) var(--espacio-4); font-size: 0.85rem; }
 .franja-sprint a { color: inherit; font-weight: 600; }
 .franja-s1 { background: #DCEFE6; color: #1E5A45; }

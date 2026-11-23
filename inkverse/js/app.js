@@ -54,7 +54,7 @@ const ALCANCE = [
 function rutaActual() {
   const [id, parametro] = location.hash.replace('#/', '').split('/') // '#/x/7' → ['x', '7']
   if (!id) return { ruta: RUTAS[0], parametro }
-  if (id === 'alcance') return { ruta: { id: 'alcance', titulo: 'Qué toca en cada sprint', sprint: 0, pantalla: PantallaAlcance }, parametro }
+  if (id === 'alcance') return { ruta: { id: 'alcance', titulo: 'Resumen alcance', sprint: 0, pantalla: PantallaAlcance }, parametro }
   return { ruta: RUTAS.find((r) => r.id === id), parametro }
 }
 
