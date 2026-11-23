@@ -45,7 +45,7 @@ const ALCANCE = [
   {"sprint": 1, "pieza": "Inicio", "detalle": "la búsqueda bien visible arriba, los restaurantes en tarjetas y los chips «Siguiendo» y de cocina"},
   {"sprint": 2, "pieza": "Navegación", "detalle": "la barra de pestañas con vuestras secciones, cada una con su dirección (React Router)"},
   {"sprint": 2, "pieza": "Ficha del restaurante", "detalle": "su pantalla con su dirección (#/restaurante/7), con su dirección postal y sus reseñas"},
-  {"sprint": 2, "pieza": "Foodies y su perfil", "detalle": "la lista de Foodies y el perfil de cada uno (#/foodie/3), del servidor (dam-fake-api)"},
+  {"sprint": 2, "pieza": "Foodies y su perfil", "detalle": "la lista de Foodies y el perfil de cada uno (#/foodie/3), de una API"},
   {"sprint": 2, "pieza": "«No encontrado»", "detalle": "la página de una dirección, un restaurante o un Foodie que no existe"},
   {"sprint": 2, "pieza": "Publicada", "detalle": "en GitHub Pages e instalable en el móvil"},
   {"sprint": 3, "pieza": "Guardados", "detalle": "guardar un restaurante desde su ficha; la pestaña los lista y se recuerdan al cerrar la app"},

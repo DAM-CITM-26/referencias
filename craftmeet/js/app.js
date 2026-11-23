@@ -45,7 +45,7 @@ const ALCANCE = [
   {"sprint": 2, "pieza": "Navegación", "detalle": "la barra de pestañas con vuestras secciones, cada una con su dirección (React Router)"},
   {"sprint": 2, "pieza": "Ficha del taller", "detalle": "su pantalla con su dirección (#/taller/7), a la que se llega desde cada tarjeta"},
   {"sprint": 2, "pieza": "Buscar", "detalle": "por texto, con el filtro de categoría y de precio máximo"},
-  {"sprint": 2, "pieza": "Datos y «no encontrado»", "detalle": "los talleres llegan del servidor (dam-fake-api), con «cargando» y error; y la página de «no encontrado»"},
+  {"sprint": 2, "pieza": "Datos y «no encontrado»", "detalle": "los talleres llegan de una API, con «cargando» y error; y la página de «no encontrado»"},
   {"sprint": 2, "pieza": "Publicada", "detalle": "en GitHub Pages e instalable en el móvil"},
   {"sprint": 3, "pieza": "Guardados", "detalle": "el corazón de la ficha guarda el taller, y la pestaña Guardados los lista; se recuerda al cerrar la app"},
   {"sprint": 3, "pieza": "Reservar", "detalle": "un panel con el número de plazas y la confirmación, que vuelve al inicio"},

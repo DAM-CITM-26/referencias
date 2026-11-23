@@ -38,7 +38,7 @@ const ALCANCE = [
   {"sprint": 1, "pieza": "Documentos", "detalle": "cada documento con su estado (válido, por caducar, caducado), con chips para filtrar"},
   {"sprint": 2, "pieza": "Navegación", "detalle": "la barra de pestañas con vuestras secciones, cada una con su dirección (React Router)"},
   {"sprint": 2, "pieza": "Ficha del documento", "detalle": "su pantalla con su dirección (#/documento/7), con el trabajador y los proyectos"},
-  {"sprint": 2, "pieza": "Proyectos", "detalle": "los proyectos del servidor (dam-fake-api), con «cargando» y error, y si tienen la documentación en regla"},
+  {"sprint": 2, "pieza": "Proyectos", "detalle": "los proyectos de una API, con «cargando» y error, y si tienen la documentación en regla"},
   {"sprint": 2, "pieza": "«No encontrado»", "detalle": "la página de una dirección o un documento que no existe"},
   {"sprint": 2, "pieza": "Publicada", "detalle": "en GitHub Pages e instalable en el móvil"},
   {"sprint": 3, "pieza": "Mis documentos", "detalle": "los documentos del trabajador de ejemplo (Marta Soler), con sus avisos"},

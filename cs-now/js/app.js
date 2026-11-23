@@ -38,7 +38,7 @@ const ALCANCE = [
   {"sprint": 1, "pieza": "Partidos de hoy", "detalle": "la lista con el marcador (el que gana, en negrita) y los chips de torneo"},
   {"sprint": 2, "pieza": "Navegación", "detalle": "la barra de pestañas con vuestras secciones, cada una con su dirección (React Router)"},
   {"sprint": 2, "pieza": "Ficha del partido", "detalle": "su pantalla con su dirección (#/partido/7)"},
-  {"sprint": 2, "pieza": "Ranking", "detalle": "la clasificación de equipos, del servidor (dam-fake-api), con «cargando» y error"},
+  {"sprint": 2, "pieza": "Ranking", "detalle": "la clasificación de equipos, de una API, con «cargando» y error"},
   {"sprint": 2, "pieza": "«No encontrado»", "detalle": "la página de una dirección o un partido que no existe"},
   {"sprint": 2, "pieza": "Publicada", "detalle": "en GitHub Pages e instalable en el móvil"},
   {"sprint": 3, "pieza": "Favoritos", "detalle": "seguir un equipo desde la ficha del partido; la pestaña Favoritos lo lista y se recuerda al cerrar la app"},
