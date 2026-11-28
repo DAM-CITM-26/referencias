@@ -1,5 +1,6 @@
 // SERVICE WORKER · guarda los ficheros de la app la primera vez,
-// para que se pueda abrir sin conexión. En React lo hará vite-plugin-pwa (Sprint 2).
+// para que se pueda abrir sin conexión. Solo sirve para esta referencia (lleva la lista
+// de sus ficheros): en React se usa el sw.js de la clase 22, sin lista.
 // Si cambia algún fichero, se sube la versión para que el móvil descargue la nueva.
 const VERSION = 'brot-v6'
 const FICHEROS = [
